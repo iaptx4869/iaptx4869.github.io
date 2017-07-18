@@ -83,34 +83,79 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str1 = &apos;&#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;&apos;;</div></pre></td></tr></table></figure></p>
-<p>JSON对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str2 = &#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;;</div></pre></td></tr></table></figure></p>
+        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str1 = <span class="string">'&#123; "name": "cxh", "sex": "man" &#125;'</span>;</div></pre></td></tr></table></figure></p>
+<p>JSON对象:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str2 = &#123; <span class="string">"name"</span>: <span class="string">"cxh"</span>, <span class="string">"sex"</span>: <span class="string">"man"</span> &#125;;</div></pre></td></tr></table></figure></p>
 <p>一、JSON字符串转换为JSON对象</p>
 <p>要使用上面的str1，必须使用下面的方法先转化为JSON对象：</p>
 <p>//由JSON字符串转换为JSON对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = eval(&apos;(&apos; + str + &apos;)&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span>(<span class="string">'('</span> + str + <span class="string">')'</span>);</div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = str.parseJSON(); //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = str.parseJSON(); <span class="comment">//由JSON字符串转换为JSON对象</span></div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = JSON.parse(str);  //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(str);  <span class="comment">//由JSON字符串转换为JSON对象</span></div></pre></td></tr></table></figure>
 <p>然后，就可以这样读取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Alert(obj.name);</div><div class="line">Alert(obj.sex);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Alert(obj.name);</div><div class="line">Alert(obj.sex);</div></pre></td></tr></table></figure>
 <p>特别注意：如果obj本来就是一个JSON对象，那么使用eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是使用parseJSON（）函数处理后会有问题（抛出语法异常）。</p>
 <p>二、可以使用toJSONString()或者全局方法JSON.stringify()将JSON对象转化为JSON字符串。</p>
 <p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=obj.toJSONString(); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> last = obj.toJSONString(); <span class="comment">//将JSON对象转化为JSON字符</span></div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=JSON.stringify(obj); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> last = <span class="built_in">JSON</span>.stringify(obj); <span class="comment">//将JSON对象转化为JSON字符</span></div></pre></td></tr></table></figure>
 <p>注意：<br>上面的几个方法中，除了eval()函数是js自带的之外，其他的几个方法都来自json.js包。新版本的 JSON 修改了 API，将 JSON.stringify() 和 JSON.parse() 两个方法都注入到了 Javascript 的内建对象里面，前者变成了 Object.toJSONString()，而后者变成了 String.parseJSON()。如果提示找不到toJSONString()和parseJSON()方法，则说明json包版本太低。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59cn3de0000wsljejjcr8qe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59cuboy0001rwljfv85rxss" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-json/">js json</a></li></ul>
 
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/18/hello-world/" class="article-date">
+  <time datetime="2017-07-18T08:07:13.908Z" itemprop="datePublished">2017-07-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/18/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/18/hello-world/" data-id="cj59cubo30000rwljxnj6428h" class="article-share-link">Share</a>
+      
+      
     </footer>
   </div>
   
@@ -163,6 +208,10 @@
         
           <li>
             <a href="/2017/07/18/jsonstr-jsonobj/">JSON字符串与JSON对象的转换</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/18/hello-world/">Hello World</a>
           </li>
         
       </ul>

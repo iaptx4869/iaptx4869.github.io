@@ -5,17 +5,17 @@
   
   <title>JSON字符串与JSON对象的转换 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &amp;apos;&amp;#123; &amp;quot;name&amp;quot;: &amp;quot;cxh&amp;quot;, &amp;quot;sex&amp;quot;: &amp;quot;man&amp;quot; &amp;#125;&amp;apos;; JSON对象:1var">
+  <meta name="description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &apos;&amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;&apos;; JSON对象:1var str2 = &amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;;">
 <meta name="keywords" content="js json">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSON字符串与JSON对象的转换">
 <meta property="og:url" content="http://yoursite.com/2017/07/18/jsonstr-jsonobj/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &amp;apos;&amp;#123; &amp;quot;name&amp;quot;: &amp;quot;cxh&amp;quot;, &amp;quot;sex&amp;quot;: &amp;quot;man&amp;quot; &amp;#125;&amp;apos;; JSON对象:1var">
-<meta property="og:updated_time" content="2017-07-18T08:57:47.624Z">
+<meta property="og:description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &apos;&amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;&apos;; JSON对象:1var str2 = &amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;;">
+<meta property="og:updated_time" content="2017-07-18T09:05:54.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON字符串与JSON对象的转换">
-<meta name="twitter:description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &amp;apos;&amp;#123; &amp;quot;name&amp;quot;: &amp;quot;cxh&amp;quot;, &amp;quot;sex&amp;quot;: &amp;quot;man&amp;quot; &amp;#125;&amp;apos;; JSON对象:1var">
+<meta name="twitter:description" content="在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：JSON字符串:1var str1 = &apos;&amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;&apos;; JSON对象:1var str2 = &amp;#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &amp;#125;;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -86,30 +86,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str1 = &apos;&#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;&apos;;</div></pre></td></tr></table></figure></p>
-<p>JSON对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str2 = &#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;;</div></pre></td></tr></table></figure></p>
+        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str1 = <span class="string">'&#123; "name": "cxh", "sex": "man" &#125;'</span>;</div></pre></td></tr></table></figure></p>
+<p>JSON对象:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str2 = &#123; <span class="string">"name"</span>: <span class="string">"cxh"</span>, <span class="string">"sex"</span>: <span class="string">"man"</span> &#125;;</div></pre></td></tr></table></figure></p>
 <p>一、JSON字符串转换为JSON对象</p>
 <p>要使用上面的str1，必须使用下面的方法先转化为JSON对象：</p>
 <p>//由JSON字符串转换为JSON对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = eval(&apos;(&apos; + str + &apos;)&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">eval</span>(<span class="string">'('</span> + str + <span class="string">')'</span>);</div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = str.parseJSON(); //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = str.parseJSON(); <span class="comment">//由JSON字符串转换为JSON对象</span></div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = JSON.parse(str);  //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = <span class="built_in">JSON</span>.parse(str);  <span class="comment">//由JSON字符串转换为JSON对象</span></div></pre></td></tr></table></figure>
 <p>然后，就可以这样读取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Alert(obj.name);</div><div class="line">Alert(obj.sex);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Alert(obj.name);</div><div class="line">Alert(obj.sex);</div></pre></td></tr></table></figure>
 <p>特别注意：如果obj本来就是一个JSON对象，那么使用eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是使用parseJSON（）函数处理后会有问题（抛出语法异常）。</p>
 <p>二、可以使用toJSONString()或者全局方法JSON.stringify()将JSON对象转化为JSON字符串。</p>
 <p>例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=obj.toJSONString(); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> last = obj.toJSONString(); <span class="comment">//将JSON对象转化为JSON字符</span></div></pre></td></tr></table></figure>
 <p>或者</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=JSON.stringify(obj); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> last = <span class="built_in">JSON</span>.stringify(obj); <span class="comment">//将JSON对象转化为JSON字符</span></div></pre></td></tr></table></figure>
 <p>注意：<br>上面的几个方法中，除了eval()函数是js自带的之外，其他的几个方法都来自json.js包。新版本的 JSON 修改了 API，将 JSON.stringify() 和 JSON.parse() 两个方法都注入到了 Javascript 的内建对象里面，前者变成了 Object.toJSONString()，而后者变成了 String.parseJSON()。如果提示找不到toJSONString()和parseJSON()方法，则说明json包版本太低。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59cn3de0000wsljejjcr8qe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59cuboy0001rwljfv85rxss" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-json/">js json</a></li></ul>
@@ -118,6 +118,16 @@
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/18/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -165,6 +175,10 @@
         
           <li>
             <a href="/2017/07/18/jsonstr-jsonobj/">JSON字符串与JSON对象的转换</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/18/hello-world/">Hello World</a>
           </li>
         
       </ul>
