@@ -83,30 +83,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><code>var str1 = &#39;{ &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; }&#39;;</code><br>JSON对象:<br><code>var str2 = { &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; };</code></p>
+        <p>在数据传输过程中，JSON是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：<br>JSON字符串:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str1 = &apos;&#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;&apos;;</div></pre></td></tr></table></figure></p>
+<p>JSON对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var str2 = &#123; &quot;name&quot;: &quot;cxh&quot;, &quot;sex&quot;: &quot;man&quot; &#125;;</div></pre></td></tr></table></figure></p>
 <p>一、JSON字符串转换为JSON对象</p>
 <p>要使用上面的str1，必须使用下面的方法先转化为JSON对象：</p>
 <p>//由JSON字符串转换为JSON对象</p>
-<p><code>var obj = eval(&#39;(&#39; + str + &#39;)&#39;);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = eval(&apos;(&apos; + str + &apos;)&apos;);</div></pre></td></tr></table></figure>
 <p>或者</p>
-<p><code>var obj = str.parseJSON(); //由JSON字符串转换为JSON对象</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = str.parseJSON(); //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
 <p>或者</p>
-<p><code>var obj = JSON.parse(str);  //由JSON字符串转换为JSON对象</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var obj = JSON.parse(str);  //由JSON字符串转换为JSON对象</div></pre></td></tr></table></figure>
 <p>然后，就可以这样读取：</p>
-<p><code>Alert(obj.name);</code></p>
-<p><code>Alert(obj.sex);</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Alert(obj.name);</div><div class="line">Alert(obj.sex);</div></pre></td></tr></table></figure>
 <p>特别注意：如果obj本来就是一个JSON对象，那么使用eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是使用parseJSON（）函数处理后会有问题（抛出语法异常）。</p>
 <p>二、可以使用toJSONString()或者全局方法JSON.stringify()将JSON对象转化为JSON字符串。</p>
 <p>例如：</p>
-<p><code>var last=obj.toJSONString(); //将JSON对象转化为JSON字符</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=obj.toJSONString(); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
 <p>或者</p>
-<p><code>var last=JSON.stringify(obj); //将JSON对象转化为JSON字符</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var last=JSON.stringify(obj); //将JSON对象转化为JSON字符</div></pre></td></tr></table></figure>
 <p>注意：<br>上面的几个方法中，除了eval()函数是js自带的之外，其他的几个方法都来自json.js包。新版本的 JSON 修改了 API，将 JSON.stringify() 和 JSON.parse() 两个方法都注入到了 Javascript 的内建对象里面，前者变成了 Object.toJSONString()，而后者变成了 String.parseJSON()。如果提示找不到toJSONString()和parseJSON()方法，则说明json包版本太低。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59cb26j00019clj5fead6s8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/18/jsonstr-jsonobj/" data-id="cj59ck2ld00019wljyh868wqj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js-json/">js json</a></li></ul>
@@ -153,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/18/hello-world/" data-id="cj59cb25q00009cljmoxjwt4e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/18/hello-world/" data-id="cj59ck2l500009wlj57vfqckg" class="article-share-link">Share</a>
       
       
     </footer>
